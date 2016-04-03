@@ -30,6 +30,10 @@ public:
 	void Show(int ind);
 };
 
+/**
+\func void list::Add(int x, int ind)
+*/
+
 void list::Add(int x, int index)
 {
 	elem *temp = new elem;
@@ -58,11 +62,15 @@ void list::Add(int x, int index)
 	
 }
 
-void list::Show(int ind)
+/**
+\func void list::Show(int index)
+*/
+
+void list::Show(int index)
 {
 	elem *temp = first;
-	if (ind != 0) {
-		for (int i = 0; i < ind; i++)
+	if (index != 0) {
+		for (int i = 0; i < index; i++)
 		{
 			temp = temp->next;
 		}
@@ -70,12 +78,16 @@ void list::Show(int ind)
 	cout << temp->a << endl;
 }
 
-void list::Delete(int ind) {
-	if (ind == 0) first = first->next;
+/**
+\func void list::Delete(int index)
+*/
+
+void list::Delete(int index) {
+	if (index == 0) first = first->next;
 	else {
 		elem *temp = first;
-		if (ind > 1) {
-			for (int i = 0; i < ind - 1; i++)
+		if (index > 1) {
+			for (int i = 0; i < index - 1; i++)
 			{
 				temp = temp->next;
 			}
@@ -85,6 +97,10 @@ void list::Delete(int ind) {
 		delete node;
 	}
 }
+
+/**
+\func void main()
+*/
 
 void main()
 {
