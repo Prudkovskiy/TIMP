@@ -30,7 +30,7 @@ int _tmain(int argc, _TCHAR* argv[])
 				cout << result << endl;
 		}
 	}
-	system("pause");
+	//system("pause");
 
 	return 0;
 }

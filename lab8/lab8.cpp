@@ -1,10 +1,8 @@
-// lab6.cpp: определяет точку входа для консольного приложения.
-//
-
 #include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <map>
+
 using namespace std;
 
 
@@ -47,7 +45,7 @@ int main()
 		cin >> command;
 		if (command == "showall") {
 			for (int j = 0; j < mbase.size(); j++)
-				mbase[j] -> show();
+				mbase[j]->show();
 		}
 		if (command == "create")
 		{
@@ -55,24 +53,23 @@ int main()
 			if (command == "A") {
 				cin >> data;
 				mbase[k] = new A;
-				mbase[k] -> setData(data);
+				mbase[k]->setData(data);
 				k++;
 			}
 			if (command == "B") {
 				cin >> data;
 				mbase[k] = new B;
-				mbase[k] -> setData(data);
+				mbase[k]->setData(data);
 				k++;
 			}
 			if (command == "C") {
 				cin >> data;
 				mbase[k] = new C;
-				mbase[k] -> setData(data);
+				mbase[k]->setData(data);
 				k++;
 			}
 		}
 	}
-//system("pause");
-    return 0;
+	//system("pause");
+	return 0;
 }
-

@@ -57,6 +57,6 @@ int main() {
 
 	delete[] mas;
 
-	system("pause");
+	//system("pause");
 	return 0;
 }
