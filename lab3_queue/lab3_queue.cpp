@@ -3,7 +3,7 @@
 
 using namespace std;
 
-struct element
+typedef struct element
 {
 	int x;
 	element *Next = NULL;
@@ -11,9 +11,9 @@ struct element
 
 class Queue
 {
-	element *Head;
+	element *first;
 public:
-	Queue() { Head = NULL; }
+	Queue() { first = NULL; }
 	~Queue();
 	void Add(int x);
 	void Show();
@@ -22,11 +22,11 @@ public:
 
 Queue::~Queue()
 {
-	while (Head != NULL)
+	while (first != NULL)
 	{
-		element *temp = Head->Next;
-		delete Head;
-		Head = temp;
+		element *temp = first->Next;
+		delete first;
+		first = temp;
 	}
 }
 /**
@@ -36,9 +36,9 @@ void Queue::Add(int x)
 {
 	element *temp = new element;
 	temp->x = x;
-	if (Head == NULL) Head = temp;
+	if (first == NULL) first = temp;
 	else {
-		element *node = Head;
+		element *node = first;
 		while (node->Next != NULL)
 			node = node->Next;
 		node->Next = temp;
@@ -49,7 +49,7 @@ void Queue::Add(int x)
 */
 void Queue::Show()
 {
-	cout << Head->x << endl;
+	cout << first->x << endl;
 }
 /**
 \func void Queue::Del()
@@ -57,7 +57,7 @@ void Queue::Show()
 void Queue::Del()
 {
 	//element *node = Head;
-	Head = Head->Next;
+	first = first->Next;
 	//delete node;
 
 }
@@ -91,6 +91,5 @@ int main()
 
 	}
 
-	//system("pause");
-	return 0;
+	system("pause");
 }

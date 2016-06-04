@@ -6,7 +6,7 @@
 
 using namespace std;
 
-struct elem {
+typedef struct elem {
 	int a;
 	elem *next = NULL;
 };

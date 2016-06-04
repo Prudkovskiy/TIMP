@@ -15,23 +15,41 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	cout << "File name? "; cin >> s;
 	ifstream fin(s);
-	while (!fin.eof()) {
+	while (!fin.eof())
+	{
 		fin.getline(s, 255);	//считываем из файла строку в s	
-		if ((strstr(s, "\\func")) != NULL) { //проверка на наличие в s "\func"
-			result = strstr(s, "\\func"); //result указывает на то место в s, где стоит \func
-			result += 6;//result теперь указывает на 6 байт правее (перепрыгнули "\func ")
-			if (strstr(result, "*/") != NULL) //проверяем, заканчивается ли данная строка  на "*/"
-			{
-				strcpy(str, result); //копируем result  в str 
-				str[strlen(result) - 2] = '\0';// "затираем" */
-				cout << str << endl;
+		if ((strstr(s, "/**")) != NULL) //проверка на наличие в s "/**"
+		{
+			if ((strstr(s, "\\func")) != NULL) //проверка на наличие в s "\func"
+			{ 
+				result = strstr(s, "\\func"); //result указывает на то место в s, где стоит \func
+				result += 6;//result теперь указывает на 6 байт правее (перепрыгнули "\func ")
+				if (strstr(result, "*/") != NULL) //проверяем, заканчивается ли данная строка  на "*/"
+				{
+					strcpy(str, result); //копируем result  в str 
+					str[strlen(result) - 2] = '\0';// "затираем" */
+					cout << str << endl;
+				}
+				else
+					cout << result << endl;
 			}
 			else
-				cout << result << endl;
+			{
+				fin.getline(s, 255);
+				result = strstr(s, "\\func"); //result указывает на то место в s, где стоит \func
+				result += 6;//result теперь указывает на 6 байт правее (перепрыгнули "\func ")
+				if (strstr(result, "*/") != NULL) //проверяем, заканчивается ли данная строка  на "*/"
+				{
+					strcpy(str, result); //копируем result  в str 
+					str[strlen(result) - 2] = '\0';// "затираем" */
+					cout << str << endl;
+				}
+				else
+					cout << result << endl;
+			}
 		}
 	}
 	//system("pause");
-
 	return 0;
 }
 
